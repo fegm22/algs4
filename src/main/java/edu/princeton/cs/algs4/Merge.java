@@ -51,12 +51,12 @@ public class Merge {
         }
 
         // merge back to a[]
-        int i = lo, j = mid+1;
+        int left = lo, rigth = mid+1;
         for (int k = lo; k <= hi; k++) {
-            if      (i > mid)              a[k] = aux[j++];
-            else if (j > hi)               a[k] = aux[i++];
-            else if (less(aux[j], aux[i])) a[k] = aux[j++];
-            else                           a[k] = aux[i++];
+            if      (left > mid)                    a[k] = aux[rigth++];
+            else if (rigth > hi)                    a[k] = aux[left++];
+            else if (less(aux[rigth], aux[left]))   a[k] = aux[rigth++];
+            else                                    a[k] = aux[left++];
         }
 
         // postcondition: a[lo .. hi] is sorted
